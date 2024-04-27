@@ -16,7 +16,7 @@ class EnsureTokenIsValid
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->input('token') !== '12345') {
-            return redirect('/contact');
+            return response()->json (['message'=>'Token salah']);
         }
         return $next($request);
     }
